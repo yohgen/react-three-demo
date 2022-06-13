@@ -34,7 +34,7 @@ export const Logo = () => (
         React Three Fiber
       </a>
     </div>
-    <a href='' {...linkProps}>
+    <a href='https://github.com/yohgen/react-three-demo' {...linkProps}>
       GitHub
     </a>
   </Card>
