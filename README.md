@@ -6,9 +6,9 @@
   <img src="https://api.netlify.com/api/v1/badges/327fdaef-6009-4ff5-b0be-b1cf5396b1bc/deploy-status">
 </div>
 
-# [react-three-demo] Three.js & React Three Fiber & Stuff
+# [react-three-demo] The Quick'N'Dirty Edition
 
-Gone experimental.
+Go read [this](https://www.finwake.com/1024chapter1/1024finn1.htm) instead.
 
 # [📝] License
 
