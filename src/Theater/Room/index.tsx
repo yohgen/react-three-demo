@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { BoxGeometry, Mesh } from 'three';
 
-import { normalizeHeight, vectorizeDimensions } from 'shared/utils';
+import { dimsToNormHeightVector, dimsToVector } from 'shared/utils';
 
 import { StateProps } from 'App';
 
@@ -10,8 +10,8 @@ export const Room = ({ state }: StateProps) => {
   const boxRef = useRef<BoxGeometry>(null!);
 
   return (
-    <mesh ref={meshRef} position={normalizeHeight(state)}>
-      <boxGeometry ref={boxRef} args={vectorizeDimensions(state) as [number, number, number]} />
+    <mesh ref={meshRef} position={dimsToNormHeightVector(state)}>
+      <boxGeometry ref={boxRef} args={dimsToVector(state)} />
       <meshNormalMaterial />
     </mesh>
   );

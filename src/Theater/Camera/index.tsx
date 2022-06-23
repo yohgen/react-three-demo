@@ -1,8 +1,6 @@
-import { useThree } from '@react-three/fiber';
+import { useInitialCamera } from 'shared/hooks';
 
 export const Camera = () => {
-  useThree(({ camera }) => {
-    camera.position.set(10, 10, 10);
-  });
+  useInitialCamera();
   return null;
 };

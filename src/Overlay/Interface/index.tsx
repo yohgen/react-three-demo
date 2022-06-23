@@ -1,20 +1,12 @@
-import { NumericInputProps, FormGroup, NumericInput, Card, Elevation, Collapse, Icon, IconSize, Tag, Intent } from '@blueprintjs/core';
-import { css } from '@emotion/react';
-import { StateProps } from 'App';
 import { useState } from 'react';
+import { Card, Elevation, Collapse, Icon, IconSize, Tag, Intent } from '@blueprintjs/core';
+import { css } from '@emotion/react';
 
-const numeticInputProps: NumericInputProps & { [key: string]: any } = {
-  fill: true,
-  locale: 'ru-RU',
-  selectAllOnFocus: true,
-  minorStepSize: 0.01,
-  majorStepSize: 1,
-  min: 0,
-  max: 15,
-  onKeyDown: (event: any) => event.key === 'Enter' && event.target.blur(),
-};
+import { StateProps } from 'App';
 
-export const Interface = ({ state, setState }: StateProps) => {
+import { FormNumInput } from './FormNumInput';
+
+export const Interface: React.FC<StateProps> = ({ state, setState }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -37,41 +29,27 @@ export const Interface = ({ state, setState }: StateProps) => {
         onClick={() => setIsOpen((prevState) => !prevState)}
         css={css`
           margin-bottom: ${isOpen ? '1rem' : '0'};
+          font-weight: 700;
         `}
       >
-        Размеры
+        Dimensions
       </Tag>
       <Collapse isOpen={isOpen} keepChildrenMounted={true}>
-        <FormGroup
-          label='Длина'
-          labelFor='length'
-        >
-          <NumericInput
-            {...numeticInputProps}
-            defaultValue={state.length}
-            onValueChange={(value) => setState({ length: value })}
-          />
-        </FormGroup>
-        <FormGroup
-          label='Ширина'
-          labelFor='length'
-        >
-          <NumericInput
-            {...numeticInputProps}
-            defaultValue={state.width}
-            onValueChange={(value) => setState({ width: value })}
-          />
-        </FormGroup>
-        <FormGroup
-          label='Высота'
-          labelFor='length'
-        >
-          <NumericInput
-            {...numeticInputProps}
-            defaultValue={state.height}
-            onValueChange={(value) => setState({ height: value })}
-          />
-        </FormGroup>
+        <FormNumInput
+          label='Length'
+          defaultValue={state.length}
+          onValueChange={(value) => setState({ length: value })}
+        />
+        <FormNumInput
+          label='Width'
+          defaultValue={state.width}
+          onValueChange={(value) => setState({ width: value })}
+        />
+        <FormNumInput
+          label='Height'
+          defaultValue={state.height}
+          onValueChange={(value) => setState({ height: value })}
+        />
       </Collapse>
     </Card>
   );

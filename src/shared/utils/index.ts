@@ -1,3 +1,2 @@
-export * from './randPosition';
-export * from './repeat';
-export * from './vectorize';
+export * from './random';
+export * from './vectorConversion';
